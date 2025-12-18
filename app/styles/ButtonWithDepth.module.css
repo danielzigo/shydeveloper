@@ -1,0 +1,10 @@
+.button-shadow {
+  position: absolute;
+  bottom: -4px; /* Adjust to get the perfect look */
+  right: -4px;  /* Adjust to get the perfect look */
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: #9e9e9e; /* A gray color for the shadow */
+  z-index: 0; /* Ensure it is behind the button */
+}

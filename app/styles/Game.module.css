@@ -1,0 +1,194 @@
+/* Game.module.css */
+
+/* Wrapper container to hold both the background image and playbuttons */
+.gameContainer {
+  @apply relative flex items-center justify-center w-full h-full;
+}
+
+/* Background image container */
+.backgroundImage {
+  @apply absolute w-full h-full;
+}
+
+
+.playbuttons {
+  @apply relative w-full h-full grid place-items-center;
+}
+
+.container {
+  @apply w-full h-full flex items-center justify-center my-16;
+}
+
+/* Adjusted the `.threegrid` for advanced mode */
+.threegrid {
+  @apply relative grid mx-auto w-full max-w-[500px] h-full gap-10;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "scissors scissors"
+    "spock paper"
+    "lizard rock";
+}
+
+/* Adjusted `.twogrid` for normal mode */
+.twogrid {
+  @apply relative grid mx-auto w-full max-w-[380px] h-full gap-10;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    "rock paper"
+    "scissors scissors";
+}
+
+.rock,
+.paper,
+.scissors,
+.lizard,
+.spock,
+.rock2,
+.paper2,
+.scissors2 {
+  @apply relative w-20 h-20 xxs:w-24 xxs:h-24 xs:w-32 xs:h-32 rounded-full flex items-center justify-center;
+}
+
+/* Styles for the buttons (rock, paper, scissors, lizard, spock) with depth effect */
+/* .rock::before,
+.paper::before,
+.scissors::before,
+.lizard::before,
+.spock::before,
+.rock2::before,
+.paper2::before,
+.scissors2::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: -1;
+  transform: scale(1); */
+  /* transition: all 0.3s ease, opacity 0.5s ease; Delay showing the shadow */
+/* } */
+
+/* Specific shadow colors for each button to match the gradient but provide enough contrast */
+/* .rock::before,
+.rock2::before {
+  background: #6b4226; /* A brown shade for a more earthy look */
+/* } */
+
+/* .paper::before,
+.paper2::before { */
+  /* background: #b0b0b0; A metallic shade to give a distinct look */
+/* } */
+
+/* .scissors::before,
+.scissors2::before {
+  background: rgba(0, 0, 0, 0.3); /* Keep the default subtle shadow */
+/* } */
+
+/* .lizard::before { */
+  /* background: #8bc34a; A greenish shade for a reptile-like look */
+/* } */
+
+/* .spock::before { */
+  /* background: #663399; A deep purple to give an alien-like vibe */
+/* } */
+
+.rock {
+  grid-area: rock;
+  @apply justify-self-center bg-gradient-to-r from-[#6E4B3B] to-[#9E765F];
+  /* background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%)); */
+}
+/* .rock::before {
+  @apply bg-black;
+} */
+
+.paper {
+  grid-area: paper;
+  @apply self-center justify-self-end -mt-3 -mr-5 bg-gradient-to-r from-[#B0C4DE] to-[#C0C0C0];
+  /* background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%)); */
+  /* margin-right: -20px;
+  margin-top: -10px; */
+}
+
+.scissors {
+  grid-area: scissors;
+  @apply self-center justify-self-center -mt-4;
+  background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  /* margin-top: -15px; */
+}
+
+.lizard {
+  grid-area: lizard;
+  @apply justify-self-center bg-gradient-to-r from-[#3CB371] to-[#FFD700];
+  /* background: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%)); */
+}
+
+.spock {
+  grid-area: spock;
+  @apply justify-self-start -mt-3 -ml-5 bg-gradient-to-r from-[#FFA500] to-[#8B0000];
+  /* background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%)); */
+  /* margin-left: -20px;
+  margin-top: -10px; */
+}
+
+.rock2 {
+  grid-area: rock;
+  @apply self-center -mt-8 bg-gradient-to-r from-[#6E4B3B] to-[#9E765F];
+  /* background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%)); */
+}
+
+.paper2 {
+  grid-area: paper;
+  @apply justify-self-end -mt-8 bg-gradient-to-r from-[#B0C4DE] to-[#C0C0C0];
+  /* background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%)); */
+}
+
+.scissors2 {
+  grid-area: scissors;
+  @apply self-center justify-self-center;
+  background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+
+/* Inside each game button for centering the image */
+.inside {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-slate-100 rounded-full grid place-items-center;
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* .inside img {
+  width: 60%;
+  height: 60%;
+} */
+
+/* @media screen and (max-width: 480px) {
+  .rock,
+  .paper,
+  .scissors,
+  .lizard,
+  .spock,
+  .rock2,
+  .paper2,
+  .scissors2 {
+    @apply w-20 h-20;
+  }
+} */
+
+/* Responsive adjustments */
+@media (min-width: 500px) {
+  .playbuttons {
+    @apply left-1/2 -translate-x-1/2;
+  }
+}
+
+@media (min-width: 700px) {
+  .threegrid {
+    @apply mx-auto; /* max-w-[500px] */
+  }
+}
+
+

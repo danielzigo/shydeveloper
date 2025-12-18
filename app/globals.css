@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply font-primary bg-primary text-white leading-loose;
+  }
+
+  .h1 {
+    @apply text-[48px] md:text-[58px] xl:text-[78px] leading-[1.1] font-semibold;
+  }
+
+  .h2 {
+    @apply text-[36px] xl:text-[64px] font-bold leading-none;
+  }
+
+  .h3 {
+    @apply text-[36px] xl:text-[64px] font-bold leading-none;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px #ffffff;
+  }
+
+  .text-outline-hover {
+    -webkit-text-stroke: 1px #00ff99;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00dd99] to-[#5390e1];
+  }
+
+  .shy-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#7cc9e9] via-[#f19a83] to-[#2f3b70];
+  }
+
+  .bg-gradient {
+    @apply bg-gradient-to-r from-[#d1a4ff] to-[#5a4cd9];
+  }
+
+  .gradient-underline {
+    display: inline-block;
+    padding-bottom: 2px;
+    background-image: linear-gradient(#2fbfa9 0 0);
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease-in-out,
+      background-position 0s 0.3s ease-in-out;
+  }
+
+  .gradient-underline:hover {
+    background-position: 100% 100%;
+    background-size: 100% 2px;
+  }
+
+  .gradient-underline:focus {
+    background-position: 100% 100%;
+    background-size: 100% 2px;
+  }
+
+  /* Basic styles for the custom pagination bullets */
+  .projects-pagination .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    margin: 0 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Active bullet styling */
+  .projects-pagination .swiper-pagination-bullet-active {
+    background-color: #00ff99; /* Accent color */
+    transform: scale(1.2); /* Slightly bigger when active */
+  }
+
+  /* Add some padding around the pagination to make sure it doesn't hide */
+  .projects-pagination {
+    @apply absolute pt-5 text-left z-10 !w-fit;
+  }
+
+  .projects-pagination .swiper-pagination-bullet:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+  }
+
+  /* Base styling for the link */
+  .shine-link {
+    display: inline-block;
+    transition: color 0.3s ease;
+    position: relative;
+    overflow: hidden; /* To hide the shimmer overflow */
+  }
+
+  .shine-link:hover {
+    color: #80ffc4;
+    background: none;
+    position: relative;
+  }
+
+  .shine-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -250%; /* Start well outside the link */
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(
+      -60deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%
+    );
+    transition: none;
+  }
+
+  .shine-link:hover::before {
+    animation: shimmer 1.5s ease-out;
+  }
+
+  @keyframes shimmer {
+    100% {
+      left: 150%; /* Move completely past the text */
+    }
+  }
+}

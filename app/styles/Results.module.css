@@ -1,0 +1,217 @@
+.results,
+.pending {
+  @apply  w-full flex flex-col  text-white 
+  text-center items-center  uppercase gap-8 mb-12 mt-12; /* mt-14 mb-4 grid grid-cols-2 grid-rows-2 max-h-[560px] h-[50vh] */
+}
+
+.selection {
+  @apply flex flex-col-reverse justify-evenly mx-0 mt-[15px] items-center h-full p-[5px];
+}
+
+.selection h3 {
+  @apply p-[10px] mt-[15px] text-lg;
+}
+
+/* .btn,
+.computer {
+  @apply w-[150px] h-[150px];
+} */
+
+.computer {
+  /* w-full h-full didn't seem helpful */
+  @apply rounded-full w-auto flex items-center justify-center relative; /* h-[150px]  background: rgba(0, 0, 0, 0.226) */
+  
+}
+
+.computer::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.226);
+  @apply absolute w-[156px] h-[156px] top-[-14px] left-[-3px] rounded-full;
+}
+
+.btn {
+  @apply m-0;
+}
+
+.result {
+  grid-column: 1 / span 2;
+}
+
+.result div {
+  @apply grid place-items-center uppercase gap-3; 
+}
+
+.result h2 {
+  @apply text-3xl
+}
+
+.win {
+  @apply relative rounded-full scale-[1] transition-all duration-500;
+}
+
+.win::before,
+.win::after {
+  content: "";
+  background: hsl(229, 25%, 31%);
+  @apply absolute w-full h-full top-0 left-0 rounded-full;
+}
+
+.win::before {
+  opacity: 0.5;
+  transform: scale(1.2);
+  z-index: -1;
+  animation: anim 0.5s;
+}
+
+.win::after {
+  opacity: 0.4;
+  transform: scale(1.4);
+  z-index: -2;
+  animation: anim2 0.5s;
+}
+
+@keyframes anim {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes anim2 {
+  0% {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+.playBtn {
+  @apply bg-white text-black p-4 text-base   cursor-pointer;
+  border-radius: 8px;
+  /* w-[35%] min-w-[60px] */
+}
+
+.result button {
+  @apply text-lg;
+}
+
+
+.countdownWrapper {
+  @apply w-full h-full absolute top-0 left-0 flex justify-center items-center z-20;
+}
+
+.countdown {
+  @apply text-4xl font-bold text-white; /* animate-pulse */
+}
+
+.resetBtn {
+  @apply bg-rose-400;
+}
+
+/* Adjust results layout for small screens */
+@media screen and (max-width: 480px) {
+  /* .results,
+  .pending {
+    @apply flex flex-col items-center gap-8 text-white text-center mb-8; /* Flex layout with gap */
+  /* }  */
+
+  /* .selection {
+    @apply flex flex-col items-center mb-6;
+  } */
+
+  /* why is this needed here??? */
+  .computer::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.226);
+    @apply absolute w-full h-full top-0 left-0 rounded-full scale-[1.2];
+  }
+
+  .selection h3 {
+    @apply mb-2 text-lg; /* Smaller text for headings */
+  }
+
+  .btn,
+  .computer {
+    @apply w-[120px] h-[120px]; /* Reduce size of player/computer buttons */
+  }
+
+  .result div {
+    @apply grid place-items-center uppercase gap-3; 
+  }
+
+  .result h2 {
+    @apply text-2xl; /* Reduce text size */
+  }
+
+  .playBtn {
+    @apply text-sm mt-4; /* Adjust button size and add margin */
+  }
+
+  .resetBtn {
+    @apply text-sm mt-4; /* Adjust button size and add margin */
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .results,
+  .pending {
+    @apply mt-12 gap-4;
+  }
+  
+  .computer {
+    @apply min-w-[150px];
+  }
+
+  .resultsSelectionWrapper {
+    @apply flex justify-between items-center min-h-[250px] gap-12;
+  }
+  
+}
+
+@media screen and (min-width: 768px) {
+  /* .playBtn {
+    @apply w-[25%];
+  } */
+
+  .results,
+  .pending {
+    @apply mt-[5%]; /* grid-cols-3 w-[70%] mx-auto */
+  }
+
+  .results {
+    /* @apply md:mt-[10%]; */
+  }
+
+  /* .result {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .pending {
+    @apply w-[50%] gap-5;
+  } */
+
+  .selection h3 {
+    @apply mb-5 text-xl z-10;
+  }
+
+  .computer {
+    @apply relative;
+  }
+
+  .computer::before {
+    @apply -top-4 -left-4 h-[182px] w-[182px];
+  }
+
+  .btn,
+  .computer {
+    @apply w-[150px] h-[150px];
+  }
+
+  .resultsSelectionWrapper {
+    @apply gap-32;
+  }
+}
