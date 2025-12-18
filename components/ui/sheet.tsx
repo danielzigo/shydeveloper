@@ -204,7 +204,7 @@ const SheetContent = React.forwardRef<
       >
         {/* Animated background layer */}
         <motion.div
-          className="absolute inset-0 -z-10 rounded-inherit"
+          className="fixed inset-y-0 right-0 w-full sm:max-w-md -z-10"
           initial={{
             background: "linear-gradient(to bottom, #1C1C22, #1C1C22)",
           }}

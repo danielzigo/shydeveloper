@@ -127,7 +127,7 @@ const MobileNav = () => {
       >
         <AnimatedMenuButton isActive={isMenuButtonFocused} />
       </SheetTrigger>
-      <SheetContent className="flex flex-col">
+      <SheetContent className="flex flex-col min-h-full overflow-y-auto">
         <SheetTitle>
           <VisuallyHidden>Mobile navigation menu</VisuallyHidden>
         </SheetTitle>
@@ -163,7 +163,7 @@ const MobileNav = () => {
 
         {/* nav links */}
         <motion.nav
-          className="flex flex-col justify-center items-center gap-6"
+          className="flex flex-col justify-center items-center gap-6 mb-16"
           variants={containerVariants}
           initial="hidden"
           animate={isOpen ? "visible" : "hidden"}
@@ -186,7 +186,7 @@ const MobileNav = () => {
         </motion.nav>
 
         {/* logo text */}
-        <div className="flex justify-center flex-grow items-end mb-6">
+        <div className="flex justify-center flex-grow items-end mb-6 sm:flex-none sm:mb-0">
           {/* <LogoText
             disabled={true}
             shySize="text-[35px]"
