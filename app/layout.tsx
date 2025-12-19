@@ -44,8 +44,52 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://shydeveloper.com/#person",
+      name: "Daniel Amazigo",
+      alternateName: "ShyDeveloper",
+      url: "https://shydeveloper.com/",
+      jobTitle: "Full Stack Web Developer",
+      description:
+        "Building websites and web applications for small businesses, charities, and individuals. Straightforward development without the marketing fluff.",
+      image: "https://shydeveloper.com/logo.png",
+      sameAs: [
+        "https://github.com/danielzigo",
+        "https://www.linkedin.com/in/daniel-amazigo",
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://shydeveloper.com/#service-web-development",
+      name: "Web development",
+      provider: { "@id": "https://shydeveloper.com/#person" },
+      description:
+        "Websites and web applications for small businesses, charities, and individuals.",
+      areaServed: [
+        { "@type": "Country", name: "United Kingdom" },
+        { "@type": "AdministrativeArea", name: "Essex" },
+      ],
+      serviceType: ["Website development", "Web application development"],
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceType: "Remote service",
+      },
+      url: "https://shydeveloper.com/",
+    },
+  ];
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`relative ${montserrat.variable} ${squadaOne.variable} ${fjallaOne.variable} ${luckiestGuy.variable} antialiased`}
       >
