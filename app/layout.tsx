@@ -37,6 +37,34 @@ export const metadata: Metadata = {
   title: "ShyDeveloper - Web Developer",
   description:
     "Building websites and web applications for small businesses, charities, and individuals. Straightforward development without the marketing fluff.",
+
+  // Open Graph (for LinkedIn, Facebook, etc.)
+  openGraph: {
+    title: "ShyDeveloper - Web Developer",
+    description:
+      "Building websites and web applications for small businesses, charities, and individuals.",
+    url: "https://shydeveloper.com",
+    siteName: "ShyDeveloper",
+    locale: "en_GB",
+    type: "website",
+    images: [
+      {
+        url: "https://shydeveloper.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "ShyDeveloper - Web Developer",
+      },
+    ],
+  },
+
+  // Twitter Card (for Twitter/X)
+  twitter: {
+    card: "summary_large_image",
+    title: "ShyDeveloper - Web Developer",
+    description:
+      "Building websites and web applications for small businesses, charities, and individuals.",
+    images: ["https://shydeveloper.com/og-image.png"],
+  },
 };
 
 interface RootLayoutProps {
