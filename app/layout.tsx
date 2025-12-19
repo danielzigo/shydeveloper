@@ -76,7 +76,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       serviceType: ["Website development", "Web application development"],
       availableChannel: {
         "@type": "ServiceChannel",
-        serviceType: "Remote service",
+        name: "Remote service",
+        availableLanguage: "en",
       },
       url: "https://shydeveloper.com/",
     },
