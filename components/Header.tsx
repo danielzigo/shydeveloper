@@ -1,105 +1,94 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-
-// Components
-import Nav from "@/components/Nav";
-import MobileNav from "@/components/MobileNav";
-import LogoText from "@/components/LogoText";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
-// import logoImage from "@/public/assets/shydeveloper-logo-image1.svg";
-// import logoImage2 from "@/public/assets/shydeveloper-logo-image2.svg";
+// Context
+import { useNotFound } from "@/app/contexts/NotFoundContext";
+
+// Components
+import LogoText from "@/components/LogoText";
+import MobileNav from "@/components/MobileNav";
+import Nav from "@/components/Nav";
+import ThemeToggle from "@/components/ThemeToggle";
+
+// Logo images
 import logoImage from "@/public/assets/shydeveloper-logo-img1.svg";
 import logoImage2 from "@/public/assets/shydeveloper-logo-img2.svg";
 
 const Header = () => {
-  const isTinyScreen = useMediaQuery({ query: "(max-width: 320px)" });
-  const [isHovered, setIsHovered] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+	const isTinyScreen = useMediaQuery({ query: "(max-width: 320px)" });
+	const [isHovered, setIsHovered] = useState(false);
+	const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-  useEffect(() => {
-    const hasTouch =
-      "ontouchstart" in window ||
-      navigator.maxTouchPoints > 0 ||
-      (navigator as any).msMaxTouchPoints > 0;
-      
-    setIsTouchDevice(hasTouch);
-  }, []);
+	// Track 404 state via context to conditionally hide theme toggle
+	const { isNotFound } = useNotFound();
+	const shouldHideToggle = isNotFound;
 
-  const handleFocus = () => {
-    setIsHovered(true);
-  };
+	useEffect(() => {
+		type NavigatorWithMsMaxTouchPoints = Navigator & {
+			msMaxTouchPoints?: number;
+		};
 
-  const handleBlur = () => {
-    setIsHovered(false);
-  };
+		const hasTouch =
+			"ontouchstart" in window ||
+			navigator.maxTouchPoints > 0 ||
+			((navigator as NavigatorWithMsMaxTouchPoints).msMaxTouchPoints ?? 0) > 0;
 
-  return (
-    <header className="py-8 xl:py-12 text-white">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <Link
-          href="/"
-          className=""
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-        >
-          {/* <h1 className="font-bold text-4xl xl:text-6xl"> */}
-          {/* <p className=""> */}
-          {/* Shy<span className="text-accent">Developer</span> */}
-          {/* <span className="text-4xl relative">
-                Shy
-                {/* Adding lines above and below 'shy' */}
-          {/* {/* <span className="absolute left-0 top-[-10px] w-full h-[3px] bg-white"></span> */}
-          {/* <span className="absolute left-0 bottom-[-10px] w-full h-[3px] bg-white"></span> */}
-          {/* </span> */}
-          {/* <span className="text-5xl text-accent">Developer</span> */}
-          {/* </p> */}
-          {/* </h1> */}
-          {/* <Image src={logoImage} width={80} height={70} alt="ShyDeveloper Logo" /> */}
+		setIsTouchDevice(hasTouch);
+	}, []);
 
-          {/* Logo */}
-          {/* 
+	const handleFocus = () => {
+		setIsHovered(true);
+	};
+
+	const handleBlur = () => {
+		setIsHovered(false);
+	};
+
+	return (
+		<header className="bg-gradient-to-b from-[rgb(227,227,227)] from-5% to-[#f6f5f6] py-8 text-foreground dark:from-inherit dark:to-inherit dark:text-white xl:py-12">
+			<div className="container mx-auto flex items-center justify-between">
+				{/* Logo */}
+				<Link
+					href="/"
+					className=""
+					onMouseEnter={() => setIsHovered(true)}
+					onMouseLeave={() => setIsHovered(false)}
+					onFocus={handleFocus}
+					onBlur={handleBlur}
+				>
+					{/* 
             on mobile/tablet, use the coloured logo image
-            on desktop, use the white logo image because you will switch to the coloured logo image on hover
+            on desktop, use the greyscale logo image because you will switch to the coloured logo image on hover
           */}
-          <div className="flex items-center gap-1">
-            <Image
-              src={
-                isTouchDevice ? logoImage2 : isHovered ? logoImage2 : logoImage
-              }
-              width={isTinyScreen ? 60 : 80}
-              height={isTinyScreen ? 60 : 80}
-              alt="ShyDeveloper Logo"
-              className="transition-all duration-1000 ease-in-out"
-            />
-            <LogoText hovered={isHovered} />
-          </div>
-        </Link>
+					<div className="flex items-center gap-1">
+						<Image
+							src={isTouchDevice ? logoImage2 : isHovered ? logoImage2 : logoImage}
+							width={isTinyScreen ? 60 : 80}
+							height={isTinyScreen ? 60 : 80}
+							alt="ShyDeveloper Logo"
+							className="transition-all duration-1000 ease-in-out"
+						/>
+						<LogoText hovered={isHovered} />
+					</div>
+				</Link>
 
-        {/* Desktop Nav & Hire me button*/}
-        <div className="hidden xl:flex items-center gap-8">
-          <Nav />
-          {/* <Link href="/contact">
-            <Button>Hire Me</Button>
-          </Link> */}
+				<div className="hidden items-center gap-8 xl:flex">
+					<Nav />
+					{/* Theme toggle - hidden on 404 page */}
+					{!shouldHideToggle && <ThemeToggle />}
+				</div>
 
-          {/* later, add dark mode toggle here */}
-        </div>
-
-        {/* Mobile Nav */}
-        <div className="xl:hidden">
-          <MobileNav />
-        </div>
-      </div>
-    </header>
-  );
+				{/* Mobile Nav */}
+				<div className="xl:hidden">
+					<MobileNav />
+				</div>
+			</div>
+		</header>
+	);
 };
 
 export default Header;

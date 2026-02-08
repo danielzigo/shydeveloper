@@ -1,15 +1,14 @@
 .results,
 .pending {
-  @apply  w-full flex flex-col  text-white 
-  text-center items-center  uppercase gap-8 mb-12 mt-12; /* mt-14 mb-4 grid grid-cols-2 grid-rows-2 max-h-[560px] h-[50vh] */
+  @apply mb-12 mt-12 flex w-full flex-col items-center gap-8 text-center uppercase text-white; /* mt-14 mb-4 grid grid-cols-2 grid-rows-2 max-h-[560px] h-[50vh] */
 }
 
 .selection {
-  @apply flex flex-col-reverse justify-evenly mx-0 mt-[15px] items-center h-full p-[5px];
+  @apply mx-0 mt-[15px] flex h-full flex-col-reverse items-center justify-evenly p-[5px];
 }
 
 .selection h3 {
-  @apply p-[10px] mt-[15px] text-lg;
+  @apply mt-[15px] p-[10px] text-lg;
 }
 
 /* .btn,
@@ -19,14 +18,13 @@
 
 .computer {
   /* w-full h-full didn't seem helpful */
-  @apply rounded-full w-auto flex items-center justify-center relative; /* h-[150px]  background: rgba(0, 0, 0, 0.226) */
-  
+  @apply relative flex w-auto items-center justify-center rounded-full; /* h-[150px]  background: rgba(0, 0, 0, 0.226) */
 }
 
 .computer::before {
   content: "";
   background: rgba(0, 0, 0, 0.226);
-  @apply absolute w-[156px] h-[156px] top-[-14px] left-[-3px] rounded-full;
+  @apply absolute left-[-3px] top-[-14px] h-[156px] w-[156px] rounded-full;
 }
 
 .btn {
@@ -38,22 +36,22 @@
 }
 
 .result div {
-  @apply grid place-items-center uppercase gap-3; 
+  @apply grid place-items-center gap-3 uppercase;
 }
 
 .result h2 {
-  @apply text-3xl
+  @apply text-3xl;
 }
 
 .win {
-  @apply relative rounded-full scale-[1] transition-all duration-500;
+  @apply relative scale-[1] rounded-full transition-all duration-500;
 }
 
 .win::before,
 .win::after {
   content: "";
   background: hsl(229, 25%, 31%);
-  @apply absolute w-full h-full top-0 left-0 rounded-full;
+  @apply absolute left-0 top-0 h-full w-full rounded-full;
 }
 
 .win::before {
@@ -89,7 +87,7 @@
 }
 
 .playBtn {
-  @apply bg-white text-black p-4 text-base   cursor-pointer;
+  @apply cursor-pointer bg-white p-4 text-base text-black;
   border-radius: 8px;
   /* w-[35%] min-w-[60px] */
 }
@@ -98,9 +96,8 @@
   @apply text-lg;
 }
 
-
 .countdownWrapper {
-  @apply w-full h-full absolute top-0 left-0 flex justify-center items-center z-20;
+  @apply absolute left-0 top-0 z-20 flex h-full w-full items-center justify-center;
 }
 
 .countdown {
@@ -126,7 +123,7 @@
   .computer::before {
     content: "";
     background: rgba(0, 0, 0, 0.226);
-    @apply absolute w-full h-full top-0 left-0 rounded-full scale-[1.2];
+    @apply absolute left-0 top-0 h-full w-full scale-[1.2] rounded-full;
   }
 
   .selection h3 {
@@ -135,11 +132,11 @@
 
   .btn,
   .computer {
-    @apply w-[120px] h-[120px]; /* Reduce size of player/computer buttons */
+    @apply h-[120px] w-[120px]; /* Reduce size of player/computer buttons */
   }
 
   .result div {
-    @apply grid place-items-center uppercase gap-3; 
+    @apply grid place-items-center gap-3 uppercase;
   }
 
   .result h2 {
@@ -147,11 +144,11 @@
   }
 
   .playBtn {
-    @apply text-sm mt-4; /* Adjust button size and add margin */
+    @apply mt-4 text-sm; /* Adjust button size and add margin */
   }
 
   .resetBtn {
-    @apply text-sm mt-4; /* Adjust button size and add margin */
+    @apply mt-4 text-sm; /* Adjust button size and add margin */
   }
 }
 
@@ -160,15 +157,14 @@
   .pending {
     @apply mt-12 gap-4;
   }
-  
+
   .computer {
     @apply min-w-[150px];
   }
 
   .resultsSelectionWrapper {
-    @apply flex justify-between items-center min-h-[250px] gap-12;
+    @apply flex min-h-[250px] items-center justify-between gap-12;
   }
-  
 }
 
 @media screen and (min-width: 768px) {
@@ -195,7 +191,7 @@
   } */
 
   .selection h3 {
-    @apply mb-5 text-xl z-10;
+    @apply z-10 mb-5 text-xl;
   }
 
   .computer {
@@ -203,12 +199,12 @@
   }
 
   .computer::before {
-    @apply -top-4 -left-4 h-[182px] w-[182px];
+    @apply -left-4 -top-4 h-[182px] w-[182px];
   }
 
   .btn,
   .computer {
-    @apply w-[150px] h-[150px];
+    @apply h-[150px] w-[150px];
   }
 
   .resultsSelectionWrapper {
