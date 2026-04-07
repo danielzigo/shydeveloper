@@ -1,6 +1,6 @@
 /**
  * Represents a side project in the portfolio.
- * Side projects are personal experiments and learning projects.
+ * Side projects are personal experiments.
  */
 export interface SideProject {
 	// Unique identifier for the project
@@ -19,4 +19,16 @@ export interface SideProject {
 	github?: string;
 	// Live deployment URL
 	live?: string;
+}
+
+/**
+ * Represents a learning project in the portfolio.
+ * Learning projects are projects built to learn new technologies or concepts.
+ */
+export interface LearningProject {
+	number: string; // Identifier
+	title: string;
+	description: string;
+	tech: string[];
+	link: string;
 }

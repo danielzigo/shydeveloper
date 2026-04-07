@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { Provider } from "react-redux";
 import store from "@/app/store";
+import { LearningProjects } from "@/components/LearningProjects";
 import ProjectLink from "@/components/ProjectLink";
 import ProjectsMainCarousel from "@/components/ProjectsMainCarousel";
 import RockPaperScissors from "@/components/RockPaperScissors";
 import SlideTransition from "@/components/SlideTransition";
-
 import { SIDE_PROJECTS } from "@/constants/sideProjects";
 import { cardEntrance, staggerContainer } from "@/lib/animations";
 import type { SideProject } from "@/types/projects";
@@ -23,7 +23,7 @@ const Projects = () => {
 				}}
 				className="relative flex min-h-[80vh] flex-col justify-end xl:px-0"
 			>
-				<div className="relative pt-12">
+				<div className="relative py-12">
 					<div className="container mx-auto">
 						{/* Page Header */}
 						<div className="mb-16">
@@ -38,18 +38,23 @@ const Projects = () => {
 					</div>
 				</div>
 
+				<section className="relative border-t border-white/20">
+					<div className="pb-20 pt-16">
+						<div className="container mx-auto">
+							<LearningProjects />
+						</div>
+					</div>
+				</section>
+
 				<section className="relative">
 					<div className="bg-gradient-to-b from-teal-600 via-teal-950 via-80% to-[#0a0e27] pb-20 pt-16 dark:from-[#33333e] dark:via-[#33333e] dark:via-80% dark:to-[#0a0e27]">
 						<div className="container mx-auto">
 							{/* Side Projects Header */}
 							<div className="mb-12 text-center">
-								<h2 className="mb-4 font-heading text-4xl font-bold">
-									<span className="text-[#dbe6ff] dark:text-inherit">Side</span>{" "}
-									<span className="text-[#ffd9d9] dark:text-accent">Projects</span>
+								<h2 className="font-heading text-4xl font-bold">
+									<span className="text-[#dbe6ff] dark:text-inherit">Built for</span>{" "}
+									<span className="text-[#ffd9d9] dark:text-accent">fun</span>
 								</h2>
-								<p className="mx-auto max-w-2xl text-lg text-[#f2f6ff] dark:text-white/70">
-									Here are a couple of interactive experiments I created in my free time.
-								</p>
 							</div>
 
 							{/* Side Projects Cards */}
