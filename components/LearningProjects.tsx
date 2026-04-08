@@ -20,7 +20,7 @@ export function LearningProjects() {
 
 			<div className="">
 				<div className="max-w-5xl mx-auto">
-					<div className="divide-y divide-white/5">
+					<div className="divide-y divide-black/5 dark:divide-white/5">
 						{LEARNING_PROJECTS.map((project) => (
 							<motion.div
 								key={project.number}
@@ -69,7 +69,7 @@ export function LearningProjects() {
 					</div>
 
 					{/* More coming hint */}
-					<div className="mt-8 pt-8 border-t border-white/5 text-center">
+					<div className="mt-8 pt-8 border-t border-black/5 dark:border-white/5 text-center">
 						<p className="text-text-primary dark:text-white/80 text-sm italic">More coming soon…</p>
 					</div>
 				</div>

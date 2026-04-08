@@ -38,7 +38,7 @@ const Projects = () => {
 					</div>
 				</div>
 
-				<section className="relative border-t border-white/20">
+				<section className="relative border-t border-black/20 dark:border-white/20">
 					<div className="pb-20 pt-16">
 						<div className="container mx-auto">
 							<LearningProjects />
