@@ -44,7 +44,7 @@ export function LearningProjects() {
 								{/* Tech */}
 								{project.tech.length > 0 && (
 									<div className="md:w-64 md:text-right shrink-0">
-										<h4 className="text-sm font-semibold text-[#7f3bf2] dark:text-accent">Tech stack:</h4>
+										<h4 className="text-sm font-semibold text-[#7f3bf2] dark:text-accent">Technologies:</h4>
 										<span className="text-sm font-semibold text-text-primary dark:text-white/60">
 											{project.tech.map((item, i) => (
 												<Fragment key={item}>
