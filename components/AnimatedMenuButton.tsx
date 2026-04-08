@@ -46,13 +46,13 @@ const AnimatedMenuButton = ({ isActive = false }: AnimatedMenuButtonProps) => {
 			aria-hidden="true"
 		>
 			{/* Top line */}
-			<div className="h-0.5 w-full bg-accent" />
+			<div className="h-0.5 w-full bg-[#7f3bf2] dark:bg-accent" />
 
 			{/* Middle section - contains middle line and Menu text */}
 			<div className="relative flex h-0.5 w-1/2 items-center justify-center">
 				{/* Middle line */}
 				<motion.div
-					className="absolute h-0.5 bg-accent"
+					className="absolute h-0.5 bg-[#7f3bf2] dark:bg-accent"
 					style={{
 						transformOrigin: "center",
 					}}
@@ -63,7 +63,7 @@ const AnimatedMenuButton = ({ isActive = false }: AnimatedMenuButtonProps) => {
 
 				{/* Menu label */}
 				<motion.span
-					className="absolute whitespace-nowrap text-[12.5px] font-semibold text-accent"
+					className="absolute whitespace-nowrap text-[12.5px] font-semibold text-[#7f3bf2] dark:text-accent"
 					variants={labelVariant}
 					initial="initial"
 					animate={showAnimation ? "visible" : "initial"}
@@ -73,7 +73,7 @@ const AnimatedMenuButton = ({ isActive = false }: AnimatedMenuButtonProps) => {
 			</div>
 
 			{/* Bottom line */}
-			<div className="h-0.5 w-full bg-accent" />
+			<div className="h-0.5 w-full bg-[#7f3bf2] dark:bg-accent" />
 		</div>
 	);
 };
